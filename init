@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# add sourcing to .bash_profile
+echo -e "\n# personalize\nsource ~/.dahlo-home/bash_profile" >> ~/.bash_profile
+
+# add sourcing to .profile
+echo -e "\n# personalize\nsource ~/.dahlo-home/profile" >> ~/.profile
+
+
+# add cronjob to update
+crontab -l | { cat; echo -e "\n# update the personalizations\n0 12 * * * cd ~/.dahlo-home ; git add -A > /dev/null ; git commit -am 'Auto-update' > /dev/null ; git pull > /dev/null ; git push &> /dev/null
+"; } | crontab -
+
+
