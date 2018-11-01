@@ -1,10 +1,8 @@
 #!/bin/bash
 
-# add sourcing to .bash_profile
+# add sourcing to .bash_profile and .bashrc
 echo -e "\n# personalize\nsource ~/.dahlo-home/bash_profile" >> ~/.bash_profile
-
-# add sourcing to .profile
-echo -e "\n# personalize\nsource ~/.dahlo-home/profile" >> ~/.profile
+echo -e "\n# personalize\nsource ~/.dahlo-home/bash_profile" >> ~/.bashrc
 
 
 # add cronjob to update
