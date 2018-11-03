@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ### ALIAS ###
 alias l='ls -lh --color --group-directories-first'
 alias ll='ls -lah --color --group-directories-first'
