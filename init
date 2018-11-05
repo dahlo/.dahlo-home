@@ -19,3 +19,5 @@ else
     echo "Adding crontab entry as read-write repo (ssh url), i.e. will try to push changes when updating"
     crontab -l | { cat ; echo -e "\n# update the personalizations\n0 12 * * * cd ~/.dahlo-home ; git add -A > /dev/null ; git commit -am 'Auto-update' > /dev/null ; git pull > /dev/null ; git push &> /dev/null"; } | crontab -
 fi
+
+echo -e "\nTo decrypt the ssh_aliases, type:\n\ngpg ssh_aliases.gpg\n"
