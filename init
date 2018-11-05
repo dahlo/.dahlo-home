@@ -1,20 +1,21 @@
 #!/bin/bash
 
 # add sourcing to .bash_profile and .bashrc (both interactive shells and non-interactive)
+echo "Adding source command to .bashrc and .bash_profile"
 echo -e "\n# personalize\nsource ~/.dahlo-home/bash_profile" >> ~/.bash_profile
 echo -e "\n# personalize\nsource ~/.dahlo-home/bash_profile" >> ~/.bashrc
 
 
 # check if the git repo is https (read-only) or ssh (read-write)
-GITURL=$(git config --get remote.origin.url)
+GITURL=$(cd ~/.dahlo-home ; git config --get remote.origin.url)
 
 # add cronjob to update
 if [[ $GITURL == https* ]] ; then
     # read-only
+    echo "Adding crontab entry as read-only repo, i.e. will only pull changes when updating"
     crontab -l | { cat ; echo -e "\n# update the personalizations\n0 12 * * * cd ~/.dahlo-home ; git pull > /dev/null"; } | crontab -
 else
     # read-write
+    echo "Adding crontab entry as read-write repo, i.e. will try to push changes when updating"
     crontab -l | { cat ; echo -e "\n# update the personalizations\n0 12 * * * cd ~/.dahlo-home ; git add -A > /dev/null ; git commit -am 'Auto-update' > /dev/null ; git pull > /dev/null ; git push &> /dev/null"; } | crontab -
 fi
-
-
