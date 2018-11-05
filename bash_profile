@@ -17,14 +17,7 @@ unset color_prompt force_color_prompt
 
 
 # misc alias
-alias tailmail='tail -n 1000 /var/mail/dahlo | less -S'
-
-
-# connect to rackham and optionally specify which login node
-rackham ()
-{
-ssh -i /home/dahlo/.ssh/keys/milou-b -AY dahlo@rackham$1.uppmax.uu.se
-}
+alias tailmail='tail -n 1000 /var/mail/$USER | less -S'
 
 
 # load ssh aliases, will have to decrypt the file first ($ gpg ssh_aliases.gpg)
