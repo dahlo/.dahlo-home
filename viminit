@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# add vim undo
+echo -e "set undofile\nset undodir=/home/$USER/.vimundo" >> ~/.vimrc
