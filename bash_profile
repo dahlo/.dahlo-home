@@ -27,6 +27,12 @@ fi
 
 
 
+function gitcm(){
+  git add -A ; git commit -am "$1" ; git pull ; git push
+}
+
+
+
 ### HOST SPECIFIC ###
 #if [[ `hostname -s` = dahlo-xps ]]; then
 
