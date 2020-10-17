@@ -41,3 +41,7 @@ function gitcm(){
     # xmodmap -e "keycode 127 = XF86AudioNext"
 
 #fi
+
+# append to history file directly
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
