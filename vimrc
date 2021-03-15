@@ -70,9 +70,10 @@ set incsearch    " search as characters are entered
 "                                              
 " KEYBINDS
 
-map <F5> <Esc><Esc>:set number!<CR>|    " toggle line number
-map <F6> <Esc><Esc>:set paste!<CR>|     " toggle paste mode
-map <F7> <Esc><Esc>:set wrap!<CR>|      " toggle line wrapping
+map <F5> <Esc><Esc>:set number!<CR>|         " toggle line number
+map <F6> <Esc><Esc>:set paste!<CR>|          " toggle paste mode
+map <F7> <Esc><Esc>:set wrap!<CR>|           " toggle line wrapping
+map <F8> <Esc><Esc>::IndentLinesToggle<CR>|  " toggle line wrapping
 
 " move vertically by visual line
 nnoremap j gj
