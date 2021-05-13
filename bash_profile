@@ -38,7 +38,7 @@ function gitcm(){
 
     # remap media keys (disable due to MATE)
     # xmodmap -e "keycode 78 = XF86AudioPlay"
-    # xmodmap -e "keycode 127 = XF86AudioNext"
+    # xmodmap -e "keycode 180 = XF86AudioNext"
 
 #fi
 
