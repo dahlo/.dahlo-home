@@ -1,0 +1,4 @@
+set completion-display-width 1       
+set blink-matching-paren on
+set colored-completion-prefix on
+set colored-stats on

@@ -5,6 +5,9 @@ echo "Adding source command to .bashrc and .bash_profile"
 echo -e "\n# personalize\nsource ~/.dahlo-home/bash_profile" >> ~/.bash_profile
 echo -e "\n# personalize\nsource ~/.dahlo-home/bash_profile" >> ~/.bashrc
 
+# appending inputrc to ~/.inputrc
+echo -e "\n# personalize\n" >> ~/.inputrc
+cat ~/.dahlo-home/inputrc >> ~/.inputrc
 
 # check if the git repo is https (read-only) or ssh (read-write)
 GITURL=$(cd ~/.dahlo-home ; git config --get remote.origin.url)
