@@ -47,7 +47,6 @@ set undofile                " Maintain undo history between sessions
 set mouse=a                 " use the mouse to move the cursor
 
 
-
 "  ____  _____    _    ____   ____ _   _ 
 " / ___|| ____|  / \  |  _ \ / ___| | | |
 " \___ \|  _|   / _ \ | |_) | |   | |_| |
@@ -74,6 +73,8 @@ map <F5> <Esc><Esc>:set number!<CR>|         " toggle line number
 map <F6> <Esc><Esc>:set paste!<CR>|          " toggle paste mode
 map <F7> <Esc><Esc>:set wrap!<CR>|           " toggle line wrapping
 map <F8> <Esc><Esc>::IndentLinesToggle<CR>|  " toggle indent lines
+map <F9> :setlocal noexpandtab  shiftwidth=20 softtabstop=20  tabstop=20 <CR>
+map <F10> :setlocal expandtab  shiftwidth=4 softtabstop=0  tabstop=4 <CR>
 
 " move vertically by visual line
 nnoremap j gj
