@@ -42,6 +42,14 @@ function gitcm(){
 
 #fi
 
+if [[ `hostname -s` = dahlo-xps ]]; then
+
+    # remap media keys
+     xmodmap -e "keycode 78 = XF86AudioPlay"
+     xmodmap -e "keycode 127 = XF86AudioNext"
+
+fi
+
 # append to history file directly
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
