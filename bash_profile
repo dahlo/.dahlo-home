@@ -60,3 +60,5 @@ figlet-comment ()
     echo "# $@"
 }
 
+# make it possible to print non-ascii in interactive python prompt
+export PYTHONIOENCODING="UTF-8"
