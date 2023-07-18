@@ -1,0 +1,2 @@
+echo "Adding xmodmap lines to ~/.xmodmap"
+cat ~/.dahlo-home/xmodmap >> ~/.xmodmap
