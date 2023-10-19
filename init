@@ -10,6 +10,11 @@ echo "Adding inputrc content to ~/.inputrc"
 echo -e "\n# personalize\n" >> ~/.inputrc
 cat ~/.dahlo-home/inputrc >> ~/.inputrc
 
+# adding tmux.con
+echo "Adding tmux.conf content to ~/.tmux.conf"
+echo -e "\n# personalize\n" >> ~/.tmux.conf
+cat ~/.dahlo-home/tmux.conf >> ~/.tmux.conf
+
 # check if the git repo is https (read-only) or ssh (read-write)
 GITURL=$(cd ~/.dahlo-home ; git config --get remote.origin.url)
 
