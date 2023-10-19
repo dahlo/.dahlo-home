@@ -1,11 +1,12 @@
 #!/bin/bash
 
 # add sourcing to .bash_profile and .bashrc (both interactive shells and non-interactive)
-echo "Adding source command to .bashrc and .bash_profile"
+echo "Adding source command to ~/.bashrc and ~/.bash_profile"
 echo -e "\n# personalize\nsource ~/.dahlo-home/bash_profile" >> ~/.bash_profile
 echo -e "\n# personalize\nsource ~/.dahlo-home/bash_profile" >> ~/.bashrc
 
 # appending inputrc to ~/.inputrc
+echo "Adding inputrc content to ~/.inputrc"
 echo -e "\n# personalize\n" >> ~/.inputrc
 cat ~/.dahlo-home/inputrc >> ~/.inputrc
 
