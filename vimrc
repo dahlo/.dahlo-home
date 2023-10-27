@@ -45,7 +45,7 @@ set showmatch               " highlight matching [{()}]
 set undodir=~/.vim/undodir  " set undo dir path
 set undofile                " Maintain undo history between sessions
 set mouse=a                 " use the mouse to move the cursor
-
+set encoding=utf-8          " use utf-8
 
 "  ____  _____    _    ____   ____ _   _ 
 " / ___|| ____|  / \  |  _ \ / ___| | | |
