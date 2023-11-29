@@ -75,6 +75,7 @@ map <F7> <Esc><Esc>:set wrap!<CR>|           " toggle line wrapping
 map <F8> <Esc><Esc>::IndentLinesToggle<CR>|  " toggle indent lines
 map <F9> :setlocal noexpandtab  shiftwidth=20 softtabstop=20  tabstop=20 <CR>
 map <F10> :setlocal expandtab  shiftwidth=4 softtabstop=0  tabstop=4 <CR>
+map <F11> <Esc><Esc>:%s/\n\n/\r/g<CR>|       " removes extra newlines after pasting code
 
 " move vertically by visual line
 nnoremap j gj
