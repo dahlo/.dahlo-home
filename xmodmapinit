@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "Adding xmodmap lines to ~/.xmodmap"
-cat ~/.dahlo-home/xmodmap >> ~/.xmodmap
+echo "Adding Xmodmap lines to ~/.Xmodmap"
+cat ~/.dahlo-home/Xmodmap >> ~/.Xmodmap
