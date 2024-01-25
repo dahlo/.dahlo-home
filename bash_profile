@@ -62,3 +62,8 @@ figlet-comment ()
 
 # make it possible to print non-ascii in interactive python prompt
 export PYTHONIOENCODING="UTF-8"
+
+
+# save ssh key passwords for the session
+eval $(ssh-agent)
+
