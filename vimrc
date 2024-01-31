@@ -69,6 +69,7 @@ set incsearch    " search as characters are entered
 "                                              
 " KEYBINDS
 
+map <F3> <Esc><Esc>:set spell!<CR>|          " toggle spell checker
 map <F5> <Esc><Esc>:set number!<CR>|         " toggle line number
 map <F6> <Esc><Esc>:set paste!<CR>|          " toggle paste mode
 map <F7> <Esc><Esc>:set wrap!<CR>|           " toggle line wrapping
