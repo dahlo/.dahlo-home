@@ -67,3 +67,8 @@ export PYTHONIOENCODING="UTF-8"
 # save ssh key passwords for the session
 eval $(ssh-agent)
 
+# fix ubisoft connect
+function ubisoft-connect-fix(){
+    sudo sysctl net.ipv4.tcp_mtu_probing=1
+}
+
