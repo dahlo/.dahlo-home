@@ -68,7 +68,14 @@ export PYTHONIOENCODING="UTF-8"
 eval $(ssh-agent)
 
 # fix ubisoft connect
-function ubisoft-connect-fix(){
+ubisoft-connect-fix(){
     sudo sysctl net.ipv4.tcp_mtu_probing=1
+}
+
+
+mount_uppmax(){
+    mount_point=${1:-/mnt/uppmax/}
+    sshfs dahlo@rackham5.uppmax.uu.se:/ $mount_point
+    
 }
 
