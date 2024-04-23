@@ -65,7 +65,7 @@ export PYTHONIOENCODING="UTF-8"
 
 
 # save ssh key passwords for the session
-eval $(ssh-agent)
+#eval $(ssh-agent)
 
 # fix ubisoft connect
 ubisoft-connect-fix(){
