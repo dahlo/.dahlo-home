@@ -11,6 +11,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 Then run :PlugInstall in vim to install the missing plugins.
 
 To install the color scheme run
-mkdir ~/.vim/colors ; wget https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim -O ~/.vim/colors/monokai.vim
+mkdir -p ~/.vim/colors ; wget https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim -O ~/.vim/colors/monokai.vim
 
 "
