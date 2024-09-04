@@ -79,3 +79,4 @@ mount_uppmax(){
     
 }
 
+function f { find ${2:-.} -iname "*${1:?Saknar sökord}*" -ls; }
