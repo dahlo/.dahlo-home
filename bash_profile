@@ -94,7 +94,7 @@ start_vm ()
         cdrom="-cdrom $2"
     fi
     
-    qemu-system-x86_64 $cdrom -drive "file=$1,format=qcow2" -enable-kvm -m 16G -smp 8 ;
+    qemu-system-x86_64 $cdrom -drive "file=$1,format=qcow2" -enable-kvm -m 16G -smp 8 -cpu host ;
 
 }
 
