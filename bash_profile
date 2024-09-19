@@ -79,4 +79,25 @@ mount_uppmax(){
     
 }
 
-function f { find ${2:-.} -iname "*${1:?Saknar sökord}*" -ls; }
+# Björns find
+function f { find ${2:-.} -iname "*${1:?Missing search term}*" -ls; }
+
+
+# start a qemu vm
+start_vm ()
+{
+
+    # check if 2 argument is given
+    if [ ! -z ${2+x} ]; 
+    then 
+        # a 2nd argument was given, use it as a cdrom
+        cdrom="-cdrom $2"
+    fi
+    
+    qemu-system-x86_64 $cdrom -drive "file=$1,format=qcow2" -enable-kvm -m 16G -smp 8 -cpu host ;
+
+}
+
+
+
+
