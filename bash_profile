@@ -50,9 +50,19 @@ if [[ `hostname -s` = dahlo-xps ]]; then
 
 fi
 
+# Add or modify these lines (add large numbers for effectively unlimited history):
+export HISTSIZE=10000
+export HISTFILESIZE=20000
+
 # append to history file directly
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
+# Ignore duplicate commands
+export HISTCONTROL=ignoredups:erasedups
+
+# Add timestamps to history
+export HISTTIMEFORMAT="%F %T "
 
 figlet-comment ()
 {
