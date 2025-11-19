@@ -6,21 +6,62 @@
 "
 " AI
 
-let g:copilot_enable = 0                                " disabled by default
-let g:copilot_filetypes = {'*': 0, 'python': 1, 'css': 1, 'php': 1, 'perl': 1, 'markdown': 1, 'go': 1, 'html': 1, 'java': 1, 'javascript': 1, 'julia': 1, 'lua': 1, 'make': 1, 'mf': 1, 'nginx': 1, 'apache': 1, 'quarto': 1, 'r': 1, 'rmd': 1, 'ruby': 1, 'rust': 1, 'scala': 1, 'screen': 1, 'sed': 1, 'scss': 1, 'services': 1, 'sh': 1, 'systemd': 1, 'tcl': 1, 'tex': 1, 'tmux': 1, 'typescript': 1, 'typescriptreact': 1, 'vim': 1, 'xmodmap': 1, } " only enabled on whitelisted file types
-" let g:copilot_filetypes = {'*': v:false, 'python': v:true, 'css': v:true, 'php': v:true, 'perl': v:true, 'markdown': v:true, 'go': v:true, 'html': v:true, 'java': v:true, 'javascript': v:true, 'julia': v:true, 'lua': v:true, 'make': v:true, 'mf': v:true, 'nginx': v:true, 'apache': v:true, 'quarto': v:true, 'r': v:true, 'rmd': v:true, 'ruby': v:true, 'rust': v:true, 'scala': v:true, 'screen': v:true, 'sed': v:true, 'scss': v:true, 'services': v:true, 'sh': v:true, 'systemd': v:true, 'tcl': v:true, 'tex': v:true, 'tmux': v:true, 'typescript': v:true, 'typescriptreact': v:true, 'vim': v:true, 'xmodmap': v:true, '': v:true, } " only enabled on whitelisted file types
+" only enabled on whitelisted file types
+let g:copilot_filetypes = {
+  \ '*': v:false,
+  \ 'apache': v:true,
+  \ 'cs': v:true,
+  \ 'css': v:true,
+  \ 'go': v:true,
+  \ 'html': v:true,
+  \ 'java': v:true,
+  \ 'javascript': v:true,
+  \ 'julia': v:true,
+  \ 'lua': v:true,
+  \ 'make': v:true,
+  \ 'markdown': v:true,
+  \ 'mf': v:true,
+  \ 'nginx': v:true,
+  \ 'perl': v:true,
+  \ 'php': v:true,
+  \ 'python': v:true,
+  \ 'quarto': v:true,
+  \ 'r': v:true,
+  \ 'rmd': v:true,
+  \ 'ruby': v:true,
+  \ 'rust': v:true,
+  \ 'scala': v:true,
+  \ 'screen': v:true,
+  \ 'scss': v:true,
+  \ 'sed': v:true,
+  \ 'services': v:true,
+  \ 'sh': v:true,
+  \ 'systemd': v:true,
+  \ 'tcl': v:true,
+  \ 'tex': v:true,
+  \ 'tmux': v:true,
+  \ 'typescript': v:true,
+  \ 'typescriptreact': v:true,
+  \ 'vim': v:true,
+  \ 'xmodmap': v:true,
+  \ }
 
-nnoremap <F1> :call ToggleCopilot()<CR>                 " bind key to toggle function
-function! ToggleCopilot()                               " function to toggle
-    if exists("g:copilot_enable") && g:copilot_enable
-        let g:copilot_enable = 0
+
+"disabled by default
+autocmd VimEnter * Copilot disable
+
+" function to toggle copilot 
+let g:copilot_enabled = 0
+function! ToggleCopilot()
+    if exists("g:copilot_enabled") && g:copilot_enabled
+        let g:copilot_enabled = 0
         echo "Copilot disabled"
     else
         let g:copilot_enable = 1
         echo "Copilot enabled"
     endif
-endfunction      
-
+endfunction
+nnoremap <F2> :call ToggleCopilot()<CR>                 " bind key to toggle function
 
 "   ____ ___  _     ___  ____  ____  
 "  / ___/ _ \| |   / _ \|  _ \/ ___| 
@@ -70,6 +111,7 @@ set undodir=~/.vim/undodir  " set undo dir path
 set undofile                " Maintain undo history between sessions
 set mouse=a                 " use the mouse to move the cursor
 set encoding=utf-8          " use utf-8
+set conceallevel=0          " show all characters (e.g., in markdown)
 
 "  ____  _____    _    ____   ____ _   _ 
 " / ___|| ____|  / \  |  _ \ / ___| | | |
@@ -123,4 +165,6 @@ Plug 'preservim/NERDTree'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
 call plug#end()
+autocmd BufRead,BufNewFile *.qmd set filetype=markdown
+autocmd FileType markdown if expand('%:e') == 'qmd' | let g:indentLine_enabled=0 | endif
 
