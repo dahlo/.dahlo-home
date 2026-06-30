@@ -113,8 +113,8 @@ start_vm ()
 claude() {
     singularity run \
         --no-home \
-        -B "$HOME/testarea/claude-code/claude-home":/claude-home \
-        -B "$HOME/testarea/claude-code/claude-work":/work \
+        -B "$HOME/testarea/claude-code/home":/claude-home \
+        -B "$HOME/testarea/claude-code/work":/work \
         --pwd /work \
         --home /claude-home \
         "$HOME/testarea/claude-code/claude-code.sif" "$@"
