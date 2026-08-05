@@ -110,15 +110,33 @@ start_vm ()
 
 
 
-claude() {
-    singularity run \
-        --no-home \
-        -B "$HOME/testarea/claude-code/home":/claude-home \
-        -B "$HOME/testarea/claude-code/work":/work \
-        --pwd /work \
-        --home /claude-home \
-        "$HOME/testarea/claude-code/claude-code.sif" "$@"
+#claude() {
+#    singularity run \
+#        --no-home \
+#        -B "$HOME/testarea/claude-code/home":/claude-home \
+#        -B "$HOME/testarea/claude-code/work":/work \
+#        --pwd /work \
+#        --home /claude-home \
+#        "$HOME/testarea/claude-code/claude-code.sif" "$@"
+#}
+
+
+claude ()
+{
+    local vm="claude-sandbox"
+
+    if ! limactl list --format '{{.Name}} {{.Status}}' | grep -q "^${vm} Running$"; then
+        echo "Starting Lima VM '${vm}'..." >&2
+        limactl start "$vm"
+    fi
+
+    limactl shell "$vm" -- docker volume create claude-code-config >/dev/null
+
+    limactl shell "$vm" -- docker run -it --rm \
+        --cap-drop=ALL \
+        --security-opt=no-new-privileges \
+        -v /work:/workspace \
+        -v claude-code-config:/home/node \
+        -w /workspace \
+        claude-code-sandbox claude "$@"
 }
-
-
-
