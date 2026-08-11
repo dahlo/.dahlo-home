@@ -50,6 +50,14 @@ if [[ `hostname -s` = dahlo-xps ]]; then
 
 fi
 
+if [[ `hostname -s` = dahlo-home ]]; then
+
+    # remap media keys
+     xmodmap -e "keycode 148 = XF86AudioPlay"
+     xmodmap -e "keycode 152 = XF86AudioNext"
+
+fi
+
 # Add or modify these lines (add large numbers for effectively unlimited history):
 export HISTSIZE=10000
 export HISTFILESIZE=20000
